@@ -1,33 +1,36 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
 import NavBar from "./components/NavBar";
 import Title from "./components/Title";
-import SavedBooks from "./components/pages/BookResults";
-import BookResults from "./components/pages/BookResults";
-import NoMatch from "./components/pages/NoMatch";
-import Home from "./components/pages/Home";
-
-import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import BookResults from "./pages/BookResults";
+import NoMatch from "./pages/NoMatch";
+import Home from "./pages/Home";
+import SavedBooks from "./pages/SavedBooks";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      // <div className="App">
+      //   <NavBar />
+      //   <div className="App-header">
+      //   <Title/>
+      // </div>
+      // </div>
+      <React.Fragment>
+        <div className="App">
+      <NavBar />
+      <Title />  
         <Router>
-      <div>
-        <NavBar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/saved" component={SavedBooks} />
-          {/* <Route exact path="/books/:search" component={BookResults} /> */}
-          <Route component={NoMatch} />
-        </Switch>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/saved" component={SavedBooks} />
+            <Route exact path="/books/:search" component={BookResults} />
+            <Route component={NoMatch} />
+          </Switch>
+        </Router>
       </div>
-    </Router>
-        <div className="App-header">
-          <Title/>
-      </div>
-      </div>
+    </React.Fragment>
     );
   }
 }

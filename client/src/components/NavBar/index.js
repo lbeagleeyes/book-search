@@ -1,6 +1,5 @@
 import React from "react";
 import { Nav, Navbar } from 'react-bootstrap';
-import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -15,5 +14,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-
